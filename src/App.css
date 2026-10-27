@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #fbf6f3;
+  --surface: #ffffff;
+  --soft: #f4e6e6;
+  --text: #2b1d22;
+  --muted: #7a6770;
+  --accent: #b4536b;
+  --accent-ink: #ffffff;
+  --line: #ecdcdc;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1216;
+    --surface: #251a1f;
+    --soft: #2e2026;
+    --text: #f3e8ea;
+    --muted: #b9a3ab;
+    --accent: #e08aa1;
+    --accent-ink: #1a1216;
+    --line: #3a2a31;
+    color-scheme: dark;
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; margin: 0; }
+h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px; }
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+section { padding: 72px 0; }
+.lead { color: var(--muted); max-width: 56ch; }
+.alt { background: var(--soft); }
+
+/* Cabeçalho */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; text-decoration: none; }
+.logo span { color: var(--accent); }
+nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; font-size: 0.92rem; color: var(--muted); }
+nav a:hover { color: var(--text); }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+
+/* Topo */
+.hero {
+  padding: 80px 0 64px;
+  background: radial-gradient(900px 400px at 85% 0%, var(--soft), transparent 70%);
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(2.8rem, 8vw, 5rem); margin-bottom: 18px; }
+.hero h1 em { color: var(--accent); font-style: italic; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+.art {
+  aspect-ratio: 4 / 5;
+  border-radius: 200px 200px 24px 24px;
+  background: linear-gradient(160deg, var(--accent), var(--soft) 70%);
+  position: relative;
+  overflow: hidden;
+}
+.art::after {
+  content: "";
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg);
+  opacity: 0.35;
+  right: -12%;
+  bottom: -8%;
+}
+
+/* Serviços */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 32px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+.card .ico { font-size: 1.6rem; margin-bottom: 12px; }
+.card h3 { font-size: 1.5rem; margin-bottom: 6px; }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Preços */
+.price { margin-top: 28px; max-width: 720px; }
+.row { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+.row b { font-weight: 500; }
+.row small { display: block; color: var(--muted); }
+.row .v { font-family: var(--serif); font-size: 1.4rem; color: var(--accent); white-space: nowrap; }
+
+/* Sobre */
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; margin-top: 30px; }
+.why b { display: block; font-family: var(--serif); font-size: 2.4rem; color: var(--accent); line-height: 1; }
+.why span { color: var(--muted); font-size: 0.92rem; }
+
+/* Agendamento */
+.book { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px;
+  display: grid;
+  gap: 14px;
+}
+label { font-size: 0.85rem; font-weight: 600; display: grid; gap: 6px; }
+input, select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  width: 100%;
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.info p { margin: 0 0 10px; color: var(--muted); }
+
+/* Rodapé */
+footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 0.88rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Celular */
+@media (max-width: 720px) {
+  nav ul { display: none; }
+  .hero-grid, .book { grid-template-columns: 1fr; }
+  .art { max-height: 320px; aspect-ratio: 16 / 10; border-radius: 24px; }
+}
